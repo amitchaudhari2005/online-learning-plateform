@@ -986,25 +986,90 @@
                     </div>
 
                     <!-- Recommended Courses -->
-                    <div class="mt-8">
-                        <div class="flex justify-between items-center mb-6">
-                            <h2 class="text-xl font-bold text-gray-900">Recommended Courses</h2>
-                            <div class="flex space-x-2">
-                                <button class="px-3 py-1 text-sm font-medium rounded-md bg-indigo-100 text-indigo-700">All</button>
-                                <button class="px-3 py-1 text-sm font-medium rounded-md text-gray-500 hover:bg-gray-100">Development</button>
-                                <button class="px-3 py-1 text-sm font-medium rounded-md text-gray-500 hover:bg-gray-100">Design</button>
-                                <button class="px-3 py-1 text-sm font-medium rounded-md text-gray-500 hover:bg-gray-100">Business</button>
-                            </div>
-                        </div>
-                        <div class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
-                            <div class="course-card bg-white rounded-xl shadow-md overflow-hidden">
-                                <div class="h-48 bg-gradient-to-r from-red-500 to-red-700 relative course-card-hover-effect">
-                                    <div class="absolute inset-0 flex items-center justify-center">
-                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-20 w-20 text-white opacity-30" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z" />
-                                        </svg>
-                                    </div>
-                                    <div class="absolute top-3 left-3 flex space-x-1">
-                                        <span class="course-tag inline-flex items-center rounded-full bg-red-100 text-
-                                            
-                                            
+                  <div class="mt-8">
+  <div class="flex justify-between items-center mb-6">
+    <h2 class="text-xl font-bold text-gray-900">Recommended Courses</h2>
+    <div class="flex space-x-2">
+      <button class="px-3 py-1 text-sm font-medium rounded-md bg-indigo-100 text-indigo-700">All</button>
+      <button class="px-3 py-1 text-sm font-medium rounded-md text-gray-500 hover:bg-gray-100">Development</button>
+      <button class="px-3 py-1 text-sm font-medium rounded-md text-gray-500 hover:bg-gray-100">Design</button>
+      <button class="px-3 py-1 text-sm font-medium rounded-md text-gray-500 hover:bg-gray-100">Business</button>
+    </div>
+  </div>
+
+  <div class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
+    <!-- Course 1 -->
+    <div class="course-card bg-white rounded-xl shadow-md overflow-hidden">
+      <div class="h-48 bg-gradient-to-r from-red-500 to-red-700 relative course-card-hover-effect">
+        <div class="absolute inset-0 flex items-center justify-center">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-20 w-20 text-white opacity-30" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z" />
+          </svg>
+        </div>
+        <div class="absolute top-3 left-3 flex space-x-1">
+          <span class="course-tag inline-flex items-center rounded-full bg-red-100 text-red-700 px-2 py-0.5 text-xs font-medium">Business</span>
+        </div>
+      </div>
+      <div class="p-4">
+        <h3 class="text-lg font-semibold text-gray-800">Entrepreneurship 101</h3>
+        <p class="text-sm text-gray-600 mt-1">Learn the fundamentals of starting your own business from scratch.</p>
+      </div>
+    </div>
+
+    <!-- Course 2 -->
+    <div class="course-card bg-white rounded-xl shadow-md overflow-hidden">
+      <div class="h-48 bg-gradient-to-r from-blue-500 to-blue-700 relative course-card-hover-effect">
+        <div class="absolute inset-0 flex items-center justify-center">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-20 w-20 text-white opacity-30" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16l-4-4m0 0l4-4m-4 4h12" />
+          </svg>
+        </div>
+        <div class="absolute top-3 left-3 flex space-x-1">
+          <span class="course-tag inline-flex items-center rounded-full bg-blue-100 text-blue-700 px-2 py-0.5 text-xs font-medium">Development</span>
+        </div>
+      </div>
+      <div class="p-4">
+        <h3 class="text-lg font-semibold text-gray-800">Frontend Web Development</h3>
+        <p class="text-sm text-gray-600 mt-1">Master HTML, CSS, JavaScript, and modern frontend frameworks.</p>
+      </div>
+    </div>
+
+    <!-- Course 3 -->
+    <div class="course-card bg-white rounded-xl shadow-md overflow-hidden">
+      <div class="h-48 bg-gradient-to-r from-purple-500 to-purple-700 relative course-card-hover-effect">
+        <div class="absolute inset-0 flex items-center justify-center">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-20 w-20 text-white opacity-30" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A4 4 0 008 12.131V17h8v-4a4 4 0 00-1.248-2.832z" />
+          </svg>
+        </div>
+        <div class="absolute top-3 left-3 flex space-x-1">
+          <span class="course-tag inline-flex items-center rounded-full bg-purple-100 text-purple-700 px-2 py-0.5 text-xs font-medium">Design</span>
+        </div>
+      </div>
+      <div class="p-4">
+        <h3 class="text-lg font-semibold text-gray-800">UI/UX Design Principles</h3>
+        <p class="text-sm text-gray-600 mt-1">Create engaging, user-friendly interfaces with real-world techniques.</p>
+      </div>
+    </div>
+
+    <!-- Course 4 -->
+    <div class="course-card bg-white rounded-xl shadow-md overflow-hidden">
+      <div class="h-48 bg-gradient-to-r from-green-500 to-green-700 relative course-card-hover-effect">
+        <div class="absolute inset-0 flex items-center justify-center">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-20 w-20 text-white opacity-30" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+          </svg>
+        </div>
+        <div class="absolute top-3 left-3 flex space-x-1">
+          <span class="course-tag inline-flex items-center rounded-full bg-green-100 text-green-700 px-2 py-0.5 text-xs font-medium">Marketing</span>
+        </div>
+      </div>
+      <div class="p-4">
+        <h3 class="text-lg font-semibold text-gray-800">Digital Marketing Basics</h3>
+        <p class="text-sm text-gray-600 mt-1">Understand how SEO, social media, and ads work together to grow businesses.</p>
+      </div>
+    </div>
+  </div>
+</div> <script src="script.js"></script>
+                </body>
+                </html>

@@ -10,7 +10,7 @@
     <style>
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #f8fafc;
+            background-color: #f0f4f8;
         }
         .course-card {
             transition: all 0.3s ease;
@@ -47,124 +47,17 @@
                 box-shadow: 0 0 0 0 rgba(59, 130, 246, 0);
             }
         }
-        .modal {
-            transition: opacity 0.25s ease;
-        }
         .sidebar-menu {
             transition: transform 0.3s ease;
         }
     </style>
 </head>
 <body>
-    <!-- Login/Register Modal -->
-    <div id="authModal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
-        <div class="bg-white rounded-xl shadow-2xl w-full max-w-md p-6 relative">
-            <div class="flex justify-between items-center mb-6">
-                <div class="flex items-center">
-                    <div class="bg-blue-600 rounded-lg p-2 mr-3">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
-                        </svg>
-                    </div>
-                    <h2 class="text-2xl font-bold text-gray-800">ProXenix</h2>
-                </div>
-                <button id="closeAuthModal" class="text-gray-400 hover:text-gray-600">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-                    </svg>
-                </button>
-            </div>
-            
-            <div class="mb-6">
-                <div class="flex border-b border-gray-200">
-                    <button id="loginTab" class="auth-tab py-2 px-4 font-medium text-blue-600 border-b-2 border-blue-600">Login</button>
-                    <button id="registerTab" class="auth-tab py-2 px-4 font-medium text-gray-500 hover:text-gray-700">Register</button>
-                </div>
-            </div>
-            
-            <div id="loginContent" class="auth-content">
-                <form id="loginForm">
-                    <div class="mb-4">
-                        <label class="block text-gray-700 text-sm font-medium mb-2" for="email">Email Address</label>
-                        <input class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" id="email" type="email" placeholder="your@email.com" required>
-                    </div>
-                    <div class="mb-6">
-                        <label class="block text-gray-700 text-sm font-medium mb-2" for="password">Password</label>
-                        <input class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" id="password" type="password" placeholder="••••••••" required>
-                        <div class="flex justify-end mt-2">
-                            <a href="#" class="text-sm text-blue-600 hover:underline">Forgot password?</a>
-                        </div>
-                    </div>
-                    <button type="submit" class="w-full bg-blue-600 text-white py-2 px-4 rounded-lg hover:bg-blue-700 transition duration-200 font-medium">Sign In</button>
-                </form>
-            </div>
-            
-            <div id="registerContent" class="auth-content hidden">
-                <form id="registerForm">
-                    <div class="mb-4">
-                        <label class="block text-gray-700 text-sm font-medium mb-2" for="fullName">Full Name</label>
-                        <input class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" id="fullName" type="text" placeholder="John Doe" required>
-                    </div>
-                    <div class="mb-4">
-                        <label class="block text-gray-700 text-sm font-medium mb-2" for="regEmail">Email Address</label>
-                        <input class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" id="regEmail" type="email" placeholder="your@email.com" required>
-                    </div>
-                    <div class="mb-4">
-                        <label class="block text-gray-700 text-sm font-medium mb-2" for="regPassword">Password</label>
-                        <input class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" id="regPassword" type="password" placeholder="••••••••" required>
-                    </div>
-                    <div class="mb-6">
-                        <label class="block text-gray-700 text-sm font-medium mb-2" for="confirmPassword">Confirm Password</label>
-                        <input class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" id="confirmPassword" type="password" placeholder="••••••••" required>
-                    </div>
-                    <div class="mb-6">
-                        <label class="flex items-center">
-                            <input type="checkbox" class="rounded text-blue-600 focus:ring-blue-500" required>
-                            <span class="ml-2 text-sm text-gray-600">I agree to the <a href="#" class="text-blue-600 hover:underline">Terms of Service</a> and <a href="#" class="text-blue-600 hover:underline">Privacy Policy</a></span>
-                        </label>
-                    </div>
-                    <button type="submit" class="w-full bg-blue-600 text-white py-2 px-4 rounded-lg hover:bg-blue-700 transition duration-200 font-medium">Create Account</button>
-                </form>
-            </div>
-            
-            <div class="mt-6 text-center text-sm text-gray-600">
-                <p>Or continue with</p>
-                <div class="flex justify-center space-x-4 mt-3">
-                    <button class="flex items-center justify-center w-12 h-12 border border-gray-300 rounded-full hover:bg-gray-50">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="#4285F4">
-                            <path d="M10 0C4.477 0 0 4.477 0 10c0 4.42 2.865 8.166 6.839 9.489.5.092.682-.217.682-.482 0-.237-.008-.866-.013-1.7-2.782.603-3.369-1.342-3.369-1.342-.454-1.155-1.11-1.462-1.11-1.462-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.578 9.578 0 0110 4.836c.85.004 1.705.115 2.504.337 1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.203 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.578.688.48C17.14 18.163 20 14.418 20 10c0-5.523-4.477-10-10-10z"/>
-                        </svg>
-                    </button>
-                    <button class="flex items-center justify-center w-12 h-12 border border-gray-300 rounded-full hover:bg-gray-50">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="#EA4335">
-                            <path d="M10 0C4.477 0 0 4.477 0 10c0 5.523 4.477 10 10 10 5.523 0 10-4.477 10-10C20 4.477 15.523 0 10 0zm-.714 15.714c-3.143 0-5.714-2.571-5.714-5.714s2.571-5.714 5.714-5.714c1.543 0 2.829.571 3.829 1.514L11.4 7.457c-.514-.486-1.429-1.057-2.114-1.057-1.8 0-3.286 1.486-3.286 3.314 0 1.829 1.486 3.314 3.286 3.314 2.1 0 2.886-1.514 3-2.286H9.286V8.571h5.571c.057.314.143.629.143 1.143 0 3.371-2.257 6-5.714 6z"/>
-                        </svg>
-                    </button>
-                    <button class="flex items-center justify-center w-12 h-12 border border-gray-300 rounded-full hover:bg-gray-50">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="#1877F2">
-                            <path d="M20 10c0-5.523-4.477-10-10-10S0 4.477 0 10c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V10h2.54V7.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V10h2.773l-.443 2.89h-2.33v6.988C16.343 19.128 20 14.991 20 10z"/>
-                        </svg>
-                    </button>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Main Dashboard -->
-    <div id="dashboard" class="hidden">
-        <!-- Mobile Menu Button (visible on small screens) -->
-        <div class="lg:hidden fixed top-0 left-0 z-20 m-4">
-            <button id="mobileMenuBtn" class="p-2 rounded-md bg-blue-600 text-white">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-                </svg>
-            </button>
-        </div>
-
+    <div class="flex h-screen bg-gray-50">
         <!-- Sidebar -->
-        <aside id="sidebar" class="fixed inset-y-0 left-0 bg-white shadow-lg w-64 transform -translate-x-full lg:translate-x-0 transition-transform duration-300 ease-in-out z-30">
-            <div class="flex flex-col h-full">
-                <div class="p-4 border-b border-gray-200">
+        <div id="sidebar" class="hidden md:flex md:flex-shrink-0">
+            <div class="flex flex-col w-64 bg-white border-r border-gray-200">
+                <div class="flex items-center h-16 px-4 border-b border-gray-200">
                     <div class="flex items-center">
                         <div class="bg-blue-600 rounded-lg p-2 mr-3">
                             <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -176,7 +69,7 @@
                 </div>
                 
                 <nav class="flex-1 px-2 py-4 bg-white space-y-1 overflow-y-auto">
-                    <a href="#" class="nav-link flex items-center px-4 py-3 text-gray-600 rounded-lg hover:bg-blue-50 hover:text-blue-600 group" data-tab="dashboard">
+                    <a href="#" class="nav-link flex items-center px-4 py-3 text-gray-100 rounded-lg bg-blue-600 group" data-tab="dashboard">
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
                         </svg>
@@ -225,6 +118,12 @@
                         </svg>
                         Resources
                     </a>
+                    <a href="#" class="nav-link flex items-center px-4 py-3 text-gray-600 rounded-lg hover:bg-blue-50 hover:text-blue-600 group" data-tab="marketplace">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
+                        </svg>
+                        Course Marketplace
+                    </a>
                 </nav>
                 
                 <div class="p-4 border-t border-gray-200">
@@ -243,25 +142,88 @@
                     </button>
                 </div>
             </div>
-        </aside>
+        </div>
+
+        <!-- Mobile menu button -->
+        <div class="md:hidden fixed top-0 left-0 z-20 m-4">
+            <button id="mobileMenuBtn" class="p-2 rounded-md bg-blue-600 text-white">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
+            </button>
+        </div>
+
+        <!-- Mobile sidebar -->
+        <div id="mobileSidebar" class="fixed inset-y-0 left-0 z-30 w-64 bg-white transform -translate-x-full transition-transform duration-300 ease-in-out md:hidden">
+            <!-- Mobile sidebar content (duplicate of desktop sidebar) -->
+            <div class="flex flex-col h-full">
+                <div class="flex items-center justify-between h-16 px-4 border-b border-gray-200">
+                    <div class="flex items-center">
+                        <div class="bg-blue-600 rounded-lg p-2 mr-3">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+                            </svg>
+                        </div>
+                        <h1 class="text-xl font-bold text-gray-800">ProXenix</h1>
+                    </div>
+                    <button id="closeMobileMenu" class="text-gray-500 hover:text-gray-700">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                        </svg>
+                    </button>
+                </div>
+                
+                <nav class="flex-1 px-2 py-4 bg-white space-y-1 overflow-y-auto">
+                    <!-- Same navigation items as desktop sidebar -->
+                    <a href="#" class="mobile-nav-link flex items-center px-4 py-3 text-gray-100 rounded-lg bg-blue-600 group" data-tab="dashboard">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+                        </svg>
+                        Dashboard
+                    </a>
+                    <!-- Other navigation items... -->
+                    <a href="#" class="mobile-nav-link flex items-center px-4 py-3 text-gray-600 rounded-lg hover:bg-blue-50 hover:text-blue-600 group" data-tab="courses">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+                        </svg>
+                        My Courses
+                    </a>
+                    <a href="#" class="mobile-nav-link flex items-center px-4 py-3 text-gray-600 rounded-lg hover:bg-blue-50 hover:text-blue-600 group" data-tab="calendar">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                        </svg>
+                        Calendar
+                    </a>
+                    <a href="#" class="mobile-nav-link flex items-center px-4 py-3 text-gray-600 rounded-lg hover:bg-blue-50 hover:text-blue-600 group" data-tab="messages">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z" />
+                        </svg>
+                        Messages
+                        <span class="ml-auto bg-red-500 text-white text-xs font-medium px-2 py-0.5 rounded-full">3</span>
+                    </a>
+                </nav>
+            </div>
+        </div>
 
         <!-- Main Content -->
-        <div class="lg:ml-64 min-h-screen">
+        <div class="flex-1 flex flex-col overflow-hidden">
             <!-- Top Navigation -->
-            <header class="bg-white shadow-sm">
+            <header class="bg-white shadow-sm z-10">
                 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div class="flex justify-between h-16">
-                        <div class="flex items-center">
-                            <h1 class="text-xl font-semibold text-gray-900" id="pageTitle">Dashboard</h1>
+                        <div class="flex items-center md:ml-0 ml-8">
+                            <h1 class="text-xl font-semibold text-gray-900">Dashboard</h1>
                         </div>
                         <div class="flex items-center">
-                            <button class="p-2 rounded-full text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-blue-500 relative">
-                                <span class="sr-only">View notifications</span>
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" />
-                                </svg>
-                                <span class="notification-dot absolute top-1 right-1 h-2 w-2 bg-red-500 rounded-full"></span>
-                            </button>
+                            <div class="flex-shrink-0">
+                                <button class="p-2 rounded-full text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-blue-500 relative">
+                                    <span class="sr-only">View notifications</span>
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" />
+                                    </svg>
+                                    <span class="notification-dot absolute top-1 right-1 h-2 w-2 bg-red-500 rounded-full"></span>
+                                </button>
+                            </div>
                             <div class="ml-3 relative">
                                 <div>
                                     <button id="userMenuBtn" class="flex items-center max-w-xs bg-white rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500" id="user-menu-button" aria-expanded="false" aria-haspopup="true">
@@ -289,10 +251,11 @@
             </header>
 
             <!-- Page Content -->
-            <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
-                <!-- Dashboard Tab -->
-                <div id="dashboardTab" class="tab-content active">
-                    <div class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 mb-6">
+            <main class="flex-1 overflow-y-auto bg-gray-50 p-4 sm:p-6 lg:p-8">
+                <!-- Dashboard Content -->
+                <div class="max-w-7xl mx-auto">
+                    <!-- Stats Cards -->
+                    <div class="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4 mb-6">
                         <div class="bg-white overflow-hidden shadow rounded-lg">
                             <div class="p-5">
                                 <div class="flex items-center">
@@ -365,20 +328,37 @@
                                 </div>
                             </div>
                         </div>
+                        <div class="bg-white overflow-hidden shadow rounded-lg">
+                            <div class="p-5">
+                                <div class="flex items-center">
+                                    <div class="flex-shrink-0 bg-yellow-500 rounded-md p-3">
+                                        <svg class="h-6 w-6 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 3.055A9.001 9.001 0 1020.945 13H11V3.055z" />
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.488 9H15V3.512A9.025 9.025 0 0120.488 9z" />
+                                        </svg>
+                                    </div>
+                                    <div class="ml-5 w-0 flex-1">
+                                        <dl>
+                                            <dt class="text-sm font-medium text-gray-500 truncate">Overall Progress</dt>
+                                            <dd>
+                                                <div class="text-lg font-medium text-gray-900">68%</div>
+                                            </dd>
+                                        </dl>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="bg-gray-50 px-5 py-3">
+                                <div class="text-sm">
+                                    <a href="#" class="font-medium text-blue-600 hover:text-blue-500">View detailed progress</a>
+                                </div>
+                            </div>
+                        </div>
                     </div>
 
                     <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                        <!-- Current Courses -->
                         <div class="lg:col-span-2">
                             <div class="bg-white shadow rounded-lg mb-6">
-                                <div class="px-6 py-5 border-b border-gray-200">
-                                    <h3 class="text-lg font-medium leading-6 text-gray-900">Your Progress</h3>
-                                </div>
-                                <div class="p-6">
-                                    <canvas id="progressChart" height="300"></canvas>
-                                </div>
-                            </div>
-                            
-                            <div class="bg-white shadow rounded-lg">
                                 <div class="px-6 py-5 border-b border-gray-200 flex justify-between items-center">
                                     <h3 class="text-lg font-medium leading-6 text-gray-900">Current Courses</h3>
                                     <a href="#" class="text-sm font-medium text-blue-600 hover:text-blue-500">View all</a>
@@ -455,9 +435,20 @@
                                     </div>
                                 </div>
                             </div>
+                            
+                            <!-- Progress Chart -->
+                            <div class="bg-white shadow rounded-lg">
+                                <div class="px-6 py-5 border-b border-gray-200">
+                                    <h3 class="text-lg font-medium leading-6 text-gray-900">Your Progress</h3>
+                                </div>
+                                <div class="p-6">
+                                    <canvas id="progressChart" height="300"></canvas>
+                                </div>
+                            </div>
                         </div>
                         
                         <div>
+                            <!-- Upcoming Sessions -->
                             <div class="bg-white shadow rounded-lg mb-6">
                                 <div class="px-6 py-5 border-b border-gray-200">
                                     <h3 class="text-lg font-medium leading-6 text-gray-900">Upcoming Sessions</h3>
@@ -505,6 +496,7 @@
                                 </div>
                             </div>
                             
+                            <!-- Notifications -->
                             <div class="bg-white shadow rounded-lg">
                                 <div class="px-6 py-5 border-b border-gray-200">
                                     <h3 class="text-lg font-medium leading-6 text-gray-900">Notifications</h3>
@@ -556,185 +548,8 @@
                             </div>
                         </div>
                     </div>
-                </div>
 
-                <!-- Courses Tab -->
-                <div id="coursesTab" class="tab-content">
-                    <div class="mb-6">
-                        <div class="flex flex-col sm:flex-row sm:justify-between sm:items-center">
-                            <h2 class="text-2xl font-bold text-gray-900 mb-4 sm:mb-0">My Courses</h2>
-                            <div class="flex space-x-2">
-                                <div class="relative">
-                                    <input type="text" placeholder="Search courses..." class="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
-                                    <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-                                        </svg>
-                                    </div>
-                                </div>
-                                <div>
-                                    <select class="block w-full pl-3 pr-10 py-2 text-base border border-gray-300 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm rounded-lg">
-                                        <option>All Categories</option>
-                                        <option>Development</option>
-                                        <option>Data Science</option>
-                                        <option>Design</option>
-                                        <option>Business</option>
-                                    </select>
-                                </div>
-                                <div>
-                                    <select class="block w-full pl-3 pr-10 py-2 text-base border border-gray-300 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm rounded-lg">
-                                        <option>All Progress</option>
-                                        <option>In Progress</option>
-                                        <option>Completed</option>
-                                        <option>Not Started</option>
-                                    </select>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-                        <div class="course-card bg-white rounded-lg shadow overflow-hidden">
-                            <div class="h-48 bg-gradient-to-r from-blue-500 to-blue-700 relative">
-                                <div class="absolute inset-0 flex items-center justify-center">
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-20 w-20 text-white opacity-30" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                                    </svg>
-                                </div>
-                                <div class="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/60 to-transparent">
-                                    <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-blue-100 text-blue-800">Development</span>
-                                </div>
-                            </div>
-                            <div class="p-6">
-                                <h3 class="text-xl font-bold text-gray-900 mb-2">Web Development Fundamentals</h3>
-                                <p class="text-gray-600 text-sm mb-4">Learn the core concepts of HTML, CSS, and JavaScript to build modern websites.</p>
-                                <div class="flex items-center mb-4">
-                                    <div class="flex-shrink-0">
-                                        <div class="h-8 w-8 rounded-full bg-blue-600 flex items-center justify-center text-white font-medium text-sm">SJ</div>
-                                    </div>
-                                    <div class="ml-2">
-                                        <p class="text-sm font-medium text-gray-900">Prof. Sarah Johnson</p>
-                                    </div>
-                                </div>
-                                <div class="mb-4">
-                                    <div class="flex justify-between text-sm mb-1">
-                                        <span class="text-gray-500">Progress</span>
-                                        <span class="text-gray-900 font-medium">75%</span>
-                                    </div>
-                                    <div class="w-full bg-gray-200 rounded-full h-2">
-                                        <div class="bg-blue-600 h-2 rounded-full" style="width: 75%"></div>
-                                    </div>
-                                </div>
-                                <button class="w-full bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700 transition duration-200">Continue Learning</button>
-                            </div>
-                        </div>
-
-                        <div class="course-card bg-white rounded-lg shadow overflow-hidden">
-                            <div class="h-48 bg-gradient-to-r from-green-500 to-green-700 relative">
-                                <div class="absolute inset-0 flex items-center justify-center">
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-20 w-20 text-white opacity-30" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" />
-                                    </svg>
-                                </div>
-                                <div class="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/60 to-transparent">
-                                    <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800">Data Science</span>
-                                </div>
-                            </div>
-                            <div class="p-6">
-                                <h3 class="text-xl font-bold text-gray-900 mb-2">Data Science Essentials</h3>
-                                <p class="text-gray-600 text-sm mb-4">Master data analysis, visualization, and machine learning fundamentals.</p>
-                                <div class="flex items-center mb-4">
-                                    <div class="flex-shrink-0">
-                                        <div class="h-8 w-8 rounded-full bg-green-600 flex items-center justify-center text-white font-medium text-sm">MC</div>
-                                    </div>
-                                    <div class="ml-2">
-                                        <p class="text-sm font-medium text-gray-900">Dr. Michael Chen</p>
-                                    </div>
-                                </div>
-                                <div class="mb-4">
-                                    <div class="flex justify-between text-sm mb-1">
-                                        <span class="text-gray-500">Progress</span>
-                                        <span class="text-gray-900 font-medium">45%</span>
-                                    </div>
-                                    <div class="w-full bg-gray-200 rounded-full h-2">
-                                        <div class="bg-green-600 h-2 rounded-full" style="width: 45%"></div>
-                                    </div>
-                                </div>
-                                <button class="w-full bg-green-600 text-white py-2 rounded-lg hover:bg-green-700 transition duration-200">Continue Learning</button>
-                            </div>
-                        </div>
-
-                        <div class="course-card bg-white rounded-lg shadow overflow-hidden">
-                            <div class="h-48 bg-gradient-to-r from-purple-500 to-purple-700 relative">
-                                <div class="absolute inset-0 flex items-center justify-center">
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-20 w-20 text-white opacity-30" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 4a2 2 0 114 0v1a1 1 0 001 1h3a1 1 0 011 1v3a1 1 0 01-1 1h-1a2 2 0 100 4h1a1 1 0 011 1v3a1 1 0 01-1 1h-3a1 1 0 01-1-1v-1a2 2 0 10-4 0v1a1 1 0 01-1 1H7a1 1 0 01-1-1v-3a1 1 0 00-1-1H4a2 2 0 110-4h1a1 1 0 001-1V7a1 1 0 011-1h3a1 1 0 001-1V4z" />
-                                    </svg>
-                                </div>
-                                <div class="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/60 to-transparent">
-                                    <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-purple-100 text-purple-800">Design</span>
-                                </div>
-                            </div>
-                            <div class="p-6">
-                                <h3 class="text-xl font-bold text-gray-900 mb-2">UX Design Principles</h3>
-                                <p class="text-gray-600 text-sm mb-4">Learn to create user-centered designs with effective user experience principles.</p>
-                                <div class="flex items-center mb-4">
-                                    <div class="flex-shrink-0">
-                                        <div class="h-8 w-8 rounded-full bg-purple-600 flex items-center justify-center text-white font-medium text-sm">ER</div>
-                                    </div>
-                                    <div class="ml-2">
-                                        <p class="text-sm font-medium text-gray-900">Prof. Emily Rodriguez</p>
-                                    </div>
-                                </div>
-                                <div class="mb-4">
-                                    <div class="flex justify-between text-sm mb-1">
-                                        <span class="text-gray-500">Progress</span>
-                                        <span class="text-gray-900 font-medium">30%</span>
-                                    </div>
-                                    <div class="w-full bg-gray-200 rounded-full h-2">
-                                        <div class="bg-purple-600 h-2 rounded-full" style="width: 30%"></div>
-                                    </div>
-                                </div>
-                                <button class="w-full bg-purple-600 text-white py-2 rounded-lg hover:bg-purple-700 transition duration-200">Continue Learning</button>
-                            </div>
-                        </div>
-
-                        <div class="course-card bg-white rounded-lg shadow overflow-hidden">
-                            <div class="h-48 bg-gradient-to-r from-yellow-500 to-yellow-700 relative">
-                                <div class="absolute inset-0 flex items-center justify-center">
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-20 w-20 text-white opacity-30" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                                    </svg>
-                                </div>
-                                <div class="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/60 to-transparent">
-                                    <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-yellow-100 text-yellow-800">Business</span>
-                                </div>
-                            </div>
-                            <div class="p-6">
-                                <h3 class="text-xl font-bold text-gray-900 mb-2">Business Management 101</h3>
-                                <p class="text-gray-600 text-sm mb-4">Develop essential business management skills for the modern workplace.</p>
-                                <div class="flex items-center mb-4">
-                                    <div class="flex-shrink-0">
-                                        <div class="h-8 w-8 rounded-full bg-yellow-600 flex items-center justify-center text-white font-medium text-sm">RB</div>
-                                    </div>
-                                    <div class="ml-2">
-                                        <p class="text-sm font-medium text-gray-900">Dr. Robert Brown</p>
-                                    </div>
-                                </div>
-                                <div class="mb-4">
-                                    <div class="flex justify-between text-sm mb-1">
-                                        <span class="text-gray-500">Progress</span>
-                                        <span class="text-gray-900 font-medium">0%</span>
-                                    </div>
-                                    <div class="w-full bg-gray-200 rounded-full h-2">
-                                        <div class="bg-yellow-600 h-2 rounded-full" style="width: 0%"></div>
-                                    </div>
-                                </div>
-                                <button class="w-full bg-yellow-600 text-white py-2 rounded-lg hover:bg-yellow-700 transition duration-200">Start Learning</button>
-                            </div>
-                        </div>
-                    </div>
-
+                    <!-- Recommended Courses -->
                     <div class="mt-8">
                         <h2 class="text-xl font-bold text-gray-900 mb-4">Recommended Courses</h2>
                         <div class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
@@ -881,144 +696,108 @@
                         </div>
                     </div>
                 </div>
+            </main>
+        </div>
+    </div>
 
-                <!-- Live Classes Tab -->
-                <div id="live-classesTab" class="tab-content">
-                    <div class="mb-6">
-                        <div class="flex flex-col sm:flex-row sm:justify-between sm:items-center">
-                            <h2 class="text-2xl font-bold text-gray-900 mb-4 sm:mb-0">Live Classes</h2>
-                            <div class="flex space-x-2">
-                                <div class="relative">
-                                    <input type="text" placeholder="Search classes..." class="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
-                                    <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-                                        </svg>
-                                    </div>
-                                </div>
-                                <div>
-                                    <select class="block w-full pl-3 pr-10 py-2 text-base border border-gray-300 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm rounded-lg">
-                                        <option>All Courses</option>
-                                        <option>Web Development</option>
-                                        <option>Data Science</option>
-                                        <option>UX Design</option>
-                                        <option>Business</option>
-                                    </select>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+    <script>
+        // Initialize Chart.js
+        document.addEventListener('DOMContentLoaded', function() {
+            // Progress Chart
+            const ctx = document.getElementById('progressChart').getContext('2d');
+            const progressChart = new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: ['Week 1', 'Week 2', 'Week 3', 'Week 4', 'Week 5', 'Week 6'],
+                    datasets: [
+                        {
+                            label: 'Web Development',
+                            data: [10, 25, 35, 50, 65, 75],
+                            borderColor: 'rgb(59, 130, 246)',
+                            backgroundColor: 'rgba(59, 130, 246, 0.1)',
+                            tension: 0.3,
+                            fill: true
+                        },
+                        {
+                            label: 'Data Science',
+                            data: [5, 15, 25, 30, 40, 45],
+                            borderColor: 'rgb(16, 185, 129)',
+                            backgroundColor: 'rgba(16, 185, 129, 0.1)',
+                            tension: 0.3,
+                            fill: true
+                        },
+                        {
+                            label: 'UX Design',
+                            data: [0, 5, 10, 15, 25, 30],
+                            borderColor: 'rgb(139, 92, 246)',
+                            backgroundColor: 'rgba(139, 92, 246, 0.1)',
+                            tension: 0.3,
+                            fill: true
+                        }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    plugins: {
+                        legend: {
+                            position: 'top',
+                        },
+                        tooltip: {
+                            mode: 'index',
+                            intersect: false,
+                        }
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            max: 100,
+                            ticks: {
+                                callback: function(value) {
+                                    return value + '%';
+                                }
+                            }
+                        }
+                    },
+                    interaction: {
+                        mode: 'nearest',
+                        axis: 'x',
+                        intersect: false
+                    }
+                }
+            });
 
-                    <div class="bg-white shadow rounded-lg overflow-hidden mb-6">
-                        <div class="px-6 py-5 border-b border-gray-200">
-                            <h3 class="text-lg font-medium leading-6 text-gray-900">Today's Classes</h3>
-                        </div>
-                        <div class="divide-y divide-gray-200">
-                            <div class="p-6">
-                                <div class="flex flex-col md:flex-row md:items-center md:justify-between">
-                                    <div class="flex-1">
-                                        <h4 class="text-lg font-medium text-gray-900">Web Development Live Class: JavaScript Frameworks</h4>
-                                        <div class="mt-1 flex flex-col sm:flex-row sm:flex-wrap sm:mt-0 sm:space-x-6">
-                                            <div class="mt-2 flex items-center text-sm text-gray-500 sm:mt-0">
-                                                <svg class="flex-shrink-0 mr-1.5 h-5 w-5 text-gray-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
-                                                    <path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd" />
-                                                </svg>
-                                                Prof. Sarah Johnson
-                                            </div>
-                                            <div class="mt-2 flex items-center text-sm text-gray-500 sm:mt-0">
-                                                <svg class="flex-shrink-0 mr-1.5 h-5 w-5 text-gray-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
-                                                    <path fill-rule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clip-rule="evenodd" />
-                                                </svg>
-                                                Today, 3:00 PM - 4:30 PM
-                                            </div>
-                                            <div class="mt-2 flex items-center text-sm text-gray-500 sm:mt-0">
-                                                <svg class="flex-shrink-0 mr-1.5 h-5 w-5 text-gray-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
-                                                    <path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd" />
-                                                </svg>
-                                                Virtual Classroom
-                                            </div>
-                                        </div>
-                                        <p class="mt-2 text-sm text-gray-600">In this session, we'll explore modern JavaScript frameworks like React, Vue, and Angular, comparing their features and use cases.</p>
-                                    </div>
-                                    <div class="mt-4 md:mt-0 flex flex-col md:flex-row space-y-2 md:space-y-0 md:space-x-2">
-                                        <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-green-100 text-green-800">
-                                            Starting Soon
-                                        </span>
-                                        <button class="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
-                                            Join Now
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="p-6">
-                                <div class="flex flex-col md:flex-row md:items-center md:justify-between">
-                                    <div class="flex-1">
-                                        <h4 class="text-lg font-medium text-gray-900">Data Science Q&A Session</h4>
-                                        <div class="mt-1 flex flex-col sm:flex-row sm:flex-wrap sm:mt-0 sm:space-x-6">
-                                            <div class="mt-2 flex items-center text-sm text-gray-500 sm:mt-0">
-                                                <svg class="flex-shrink-0 mr-1.5 h-5 w-5 text-gray-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
-                                                    <path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd" />
-                                                </svg>
-                                                Dr. Michael Chen
-                                            </div>
-                                            <div class="mt-2 flex items-center text-sm text-gray-500 sm:mt-0">
-                                                <svg class="flex-shrink-0 mr-1.5 h-5 w-5 text-gray-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
-                                                    <path fill-rule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clip-rule="evenodd" />
-                                                </svg>
-                                                Today, 5:00 PM - 6:00 PM
-                                            </div>
-                                            <div class="mt-2 flex items-center text-sm text-gray-500 sm:mt-0">
-                                                <svg class="flex-shrink-0 mr-1.5 h-5 w-5 text-gray-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
-                                                    <path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd" />
-                                                </svg>
-                                                Virtual Classroom
-                                            </div>
-                                        </div>
-                                        <p class="mt-2 text-sm text-gray-600">Open Q&A session for all data science students. Bring your questions about recent assignments and projects.</p>
-                                    </div>
-                                    <div class="mt-4 md:mt-0 flex flex-col md:flex-row space-y-2 md:space-y-0 md:space-x-2">
-                                        <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-gray-100 text-gray-800">
-                                            Later Today
-                                        </span>
-                                        <button class="inline-flex items-center px-4 py-2 border border-gray-300 text-sm font-medium rounded-md shadow-sm text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
-                                            Add to Calendar
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+            // Mobile menu toggle
+            const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+            const mobileSidebar = document.getElementById('mobileSidebar');
+            const closeMobileMenu = document.getElementById('closeMobileMenu');
+            
+            if (mobileMenuBtn && mobileSidebar && closeMobileMenu) {
+                mobileMenuBtn.addEventListener('click', function() {
+                    mobileSidebar.classList.toggle('-translate-x-full');
+                });
+                
+                closeMobileMenu.addEventListener('click', function() {
+                    mobileSidebar.classList.add('-translate-x-full');
+                });
+            }
 
-                    <div class="bg-white shadow rounded-lg overflow-hidden mb-6">
-                        <div class="px-6 py-5 border-b border-gray-200">
-                            <h3 class="text-lg font-medium leading-6 text-gray-900">Upcoming Classes</h3>
-                        </div>
-                        <div class="divide-y divide-gray-200">
-                            <div class="p-6">
-                                <div class="flex flex-col md:flex-row md:items-center md:justify-between">
-                                    <div class="flex-1">
-                                        <h4 class="text-lg font-medium text-gray-900">UX Design Workshop: User Research Methods</h4>
-                                        <div class="mt-1 flex flex-col sm:flex-row sm:flex-wrap sm:mt-0 sm:space-x-6">
-                                            <div class="mt-2 flex items-center text-sm text-gray-500 sm:mt-0">
-                                                <svg class="flex-shrink-0 mr-1.5 h-5 w-5 text-gray-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
-                                                    <path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd" />
-                                                </svg>
-                                                Prof. Emily Rodriguez
-                                            </div>
-                                            <div class="mt-2 flex items-center text-sm text-gray-500 sm:mt-0">
-                                                <svg class="flex-shrink-0 mr-1.5 h-5 w-5 text-gray-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
-                                                    <path fill-rule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clip-rule="evenodd" />
-                                                </svg>
-                                                Tomorrow, 10:00 AM - 12:00 PM
-                                            </div>
-                                            <div class="mt-2 flex items-center text-sm text-gray-500 sm:mt-0">
-                                                <svg class="flex-shrink-0 mr-1.5 h-5 w-5 text-gray-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
-                                                    <path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd" />
-                                                </svg>
-                                                Virtual Classroom
-                                            </div>
-                                        </div>
-                                        <p class="mt-2 text-sm text-gray-600">Learn practical user research methods including interviews, surveys, and usability testing to inform your design decisions.</p>
-                                    </div>
-                                    <div class="mt-4 md:mt-0 flex flex-col md:flex-row space-y-2 md:space-y-0 md:space-x-2">
-                                        <button class="inline-flex items-center px-4 py-2 border border<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'967480a113d1a830',t:'MTc1Mzg3NDgwMS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script>
+            // User menu toggle
+            const userMenuBtn = document.getElementById('userMenuBtn');
+            const userMenu = document.getElementById('userMenu');
+            
+            if (userMenuBtn && userMenu) {
+                userMenuBtn.addEventListener('click', function() {
+                    userMenu.classList.toggle('hidden');
+                });
+                
+                // Close the menu when clicking outside
+                document.addEventListener('click', function(event) {
+                    if (!userMenuBtn.contains(event.target) && !userMenu.contains(event.target)) {
+                        userMenu.classList.add('hidden');
+                    }
+                });
+            }
+        });
+    </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9674a4cc36467ea6',t:'MTc1Mzg3NjI4Mi4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
